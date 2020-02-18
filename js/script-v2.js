@@ -13,6 +13,7 @@ startPage();
 
 
 document.querySelector('#addMail').addEventListener('click', validate);
+document.querySelector('#clearStorage').addEventListener('click', clearStorage);
 
 function validate() {
 	for (char of document.forms['form1']['name'].value) {
@@ -28,15 +29,20 @@ function pushData() {
 	localStorage.setItem('mailList', mailList);
 	localStorage.setItem('pwdList', pwdList);
 	refreshTable();
+
 }
 
 function startPage() {
 	//Initialize table
-	let tempMail = localStorage.getItem('mailList').split(',');
-	let tempPwd = localStorage.getItem('pwdList').split(',');
-	mailList = localStorage.getItem('mailList').split(',');
-	pwdList = localStorage.getItem('pwdList').split(',');
-
+	let tempMail = [];
+	let tempPwd = [];
+	if (localStorage.getItem('mailList') != 'null') {
+		tempMail = localStorage.getItem('mailList').split(',');
+		tempPwd = localStorage.getItem('pwdList').split(',');
+		mailList = localStorage.getItem('mailList').split(',');
+		pwdList = localStorage.getItem('pwdList').split(',');
+	}
+	
 	newTable = "<table id = 'datable' align='center' border='4px solid black'>";
 	newTable += "<thead><td>E-mail</td><td>Password</td></thead>";
 	for (var i = 0; i <= tempMail.length - 1; i++) {
@@ -45,11 +51,22 @@ function startPage() {
 	newTable += "</table>";
 	//console.log(newTable);
 	table.innerHTML = newTable;
+
+	
 }
 function refreshTable() {
-	let tempMail = localStorage.getItem('mailList').split(',');
-	let tempPwd = localStorage.getItem('pwdList').split(',');
+	let tempMail = [];
+	let tempPwd = [];
+	mailList = [];
+	pwdList = [];
 
+	if (localStorage.getItem('mailList') != 'null') {
+		tempMail = localStorage.getItem('mailList').split(',');
+		tempPwd = localStorage.getItem('pwdList').split(',');
+		mailList = localStorage.getItem('mailList').split(',');
+		pwdList = localStorage.getItem('pwdList').split(',');
+	}
+	
 	newTable = "<table id = 'datable' align='center' border='4px solid black'>";
 	newTable += "<thead><td>E-mail</td><td>Password</td></thead>";
 	for (var i = 0; i <= tempMail.length - 1; i++) {
@@ -57,4 +74,11 @@ function refreshTable() {
 	}
 	newTable += "</table>";
 	table.innerHTML = newTable;
+}
+
+function clearStorage() {
+	localStorage.setItem('mailList', 'null');
+	localStorage.setItem('pwdList', 'null');
+	refreshTable();
+	document.forms['form1'].reset();
 }
