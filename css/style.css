@@ -1,0 +1,19 @@
+body {
+	background-color: #f4f4f4;
+	font-family: 'comic sans ms';
+	max-width: 100vw;
+	max-height: 100vh;
+
+	min-width: 50vw;
+	min-height: 50vh;
+}
+
+#shift {
+	background-color: #3282b1;
+	margin-left: 40vw;
+	width: 20vw;
+	padding: 2px;
+	border: 2px solid black;
+	color: #f4f4f4;
+	border-radius: 5px;
+}
