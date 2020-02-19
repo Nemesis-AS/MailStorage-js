@@ -7,10 +7,12 @@ var newTable;
 var displayMailList = [];
 var displayPwdList = [];
 
-//localStorage.setItem('mailList', 'nemesis@gmail.com', 'someone@something.com');
-//localStorage.setItem('pwdList', '12345', '99856');
-startPage();
+if (typeof(localStorage.getItem('mailList')) === null) {
+	localStorage.setItem('mailList', 'null');
+	localStorage.setItem('pwdList', 'null');
+}
 
+startPage();
 
 document.querySelector('#addMail').addEventListener('click', validate);
 document.querySelector('#clearStorage').addEventListener('click', clearStorage);
@@ -29,7 +31,7 @@ function pushData() {
 	localStorage.setItem('mailList', mailList);
 	localStorage.setItem('pwdList', pwdList);
 	refreshTable();
-
+	document.forms['form1'].reset();
 }
 
 function startPage() {
@@ -70,7 +72,7 @@ function refreshTable() {
 	newTable = "<table id = 'datable' align='center' border='4px solid black'>";
 	newTable += "<thead><td>E-mail</td><td>Password</td></thead>";
 	for (var i = 0; i <= tempMail.length - 1; i++) {
-		newTable += `<tr><td>${tempMail[i]}</td><td>${tempPwd[i]}</td></tr>`;
+		newTable += `<tr><td>${tempMail[i]}</td><td>${tempPwd[i]}    <img src='images/eye-open.png'></td></tr>`;
 	}
 	newTable += "</table>";
 	table.innerHTML = newTable;
