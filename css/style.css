@@ -16,4 +16,15 @@ body {
 	border: 2px solid black;
 	color: #f4f4f4;
 	border-radius: 5px;
+
+	overflow: hidden;
+}
+
+.eyeDiv {
+	width: auto;
+	float: right;
+}
+
+thead {
+	text-align: center;
 }

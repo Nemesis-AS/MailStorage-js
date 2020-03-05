@@ -1,40 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Site Storage</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="icon" href="favicon.ico">
+	<title>Login - MailStorage</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
-	<h1 align="center">Site Storage</h1>
-
-	<div id="shift">
-		<form id="form1">
+	<h1>Login System</h1>
+	<div class="formHolder">
+		<form id="loginForm">
 			<table>
 				<tr>
-					<td align="right">E-mail:</td>
-					<td><input type="email" name="mail" size="20" id="name"></td>
+					<td>Username:</td>
+					<td><input type="text" name="uName" id="uName"></td>
 				</tr>
+			 	<tr>
+			 		<td>Password:</td>
+			 		<td><input type="password" name="pwd" id="pwd"></td>
+			 	</tr>
 				<tr>
-					<td align="right">Password:</td>
-					<td><input type="password" name="pwd" size="10" id="pwd"></td>
+					<td></td>
+					<td align="center"><button type="button" id="submit">Sign In</button>
+					<button type="button" id="clear">Reset</button></td>
 				</tr>
 			</table>
 		</form>
-
-		<div id="btn" align="center">
-			<button id="addMail">Add E-mail</button>
-			<button id="clearStorage">Clear Table</button>
-		</div>
 	</div>
-
-	<br><hr><br>
-
-	<table id = 'datable' align="center" border="4px solid black">
-	</table>
-	<br>
-	<hr>
-	<footer align='center'>&copy;Copyright 2020 by Nemesis&trade; INC.</footer>
-	<script src='js/script-v2.js'></script>
+	
+	<script src='js/login.js'></script>
 </body>
 </html>
